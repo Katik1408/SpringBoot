@@ -17,11 +17,9 @@ public class SwaggerConfig {
 	@Bean
 	public Docket productApi() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("com.example.alpha3")).paths(regex("/students.*")).build();
+				.apis(RequestHandlerSelectors.basePackage("com.example.alpha3")).paths(regex("/students.*")).build().apiInfo(metaData());
 
 	}
-
-	@Bean
 	public ApiInfo metaData() {
 		ApiInfo apiInfo = new ApiInfo("Spring Boot API ", "Spring Boot REST API for Students", "1.0",
 				"Terms of service",
